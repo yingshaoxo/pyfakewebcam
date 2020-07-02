@@ -30,8 +30,9 @@ install v4l2 by `sudo apt install v4l2loopback-utils`
 set v4l2 by `modprobe v4l2loopback devices=1` or `sudo modprobe v4l2loopback`
 
 ### Step 4:
-v4l2-ctl --list-devices
 check the right virtual cam by `ls /dev | grep -P '^video\d+$'`. use the last one, for example, `/dev/video3`
+
+> you can also use `v4l2-ctl --list-devices` if you know what you are doing.
 
 ### Step 5:
 run python script:
@@ -57,7 +58,7 @@ while True:
     time.sleep(1/30.0)
 ```
 
-**Be care, here I'm using the `/dev/video3`, you may need to change this to another number depends on previous step.**
+**Be careful, here I'm using the `/dev/video3`, you may need to change this to other number depends on previous step.**
 
 ### Step 6:
 check the result by `ffplay /dev/video3`
